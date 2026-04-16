@@ -1,16 +1,16 @@
 import { Router } from "express";
 import { TransacaoController } from "../controllers/transacoes.controller";
 
-const router = Router();
-const controller = new TransacaoController();
+const transacaoController = new TransacaoController();
+const transacaoRoutes = Router();
 
-router.get("/transacoes", controller.selecionarTodos);
-router.get("/transacoes/:id", controller.selecionarTodos);
-router.post("/transacoes", controller.inserir);
-router.put("/transacoes/:id", controller.atualizar);
-router.delete("/transacoes/:id", controller.deletar);
+transacaoRoutes.get("/transacoes", transacaoController.selecionarTodos);
+transacaoRoutes.get("/transacoes/:id", transacaoController.selecionarTodos);
+transacaoRoutes.post("/transacoes", transacaoController.inserir);
+transacaoRoutes.put("/transacoes/:id", transacaoController.atualizar);
+transacaoRoutes.delete("/transacoes/:id", transacaoController.deletar);
 
 // EXTRA
-router.get("/transacoes/periodo", controller.buscarPorPeriodo);
+transacaoRoutes.get("/transacoes/periodo", transacaoController.buscarPorPeriodo);
 
-export default router;
+export default transacaoRoutes;
