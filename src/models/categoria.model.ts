@@ -25,7 +25,6 @@ export class Categoria {
         this._id_categoria = id;
     }
 
-    // Getters
     public get Id(): number | undefined {
         return this._id_categoria;
     }
@@ -42,7 +41,6 @@ export class Categoria {
         return this._padrao;
     }
 
-    // Setters
     public set Nome(value: string) {
         this._validarNome(value);
         this._nome = value;
@@ -56,7 +54,6 @@ export class Categoria {
         this._padrao = value;
     }
 
-    // Factory
     public static criar(
         nome: string,
         id_perfil?: number | null,

@@ -58,7 +58,6 @@ export class Funcionario {
         return this._data_admissao;
     }
 
-    // Setters
     public set IdEmpreendimento(value: number) {
         if (!value || value <= 0) {
             throw new Error("ID do empreendimento inválido");
@@ -89,7 +88,6 @@ export class Funcionario {
         this._data_admissao = value;
     }
 
-    // Factory
     public static criar(
         id_empreendimento: number,
         nome: string,

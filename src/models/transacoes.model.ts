@@ -13,7 +13,7 @@ export interface iTransacao {
     criado_em?: Date;
 }
 
-export interface iTransacaoDB extends RowDataPacket, iTransacao {}
+export interface iTransacaoDB extends RowDataPacket, iTransacao { }
 
 
 export class Transacao {
@@ -50,9 +50,6 @@ export class Transacao {
         this._id_transacao = id;
     }
 
-    // =========================
-    // GETTERS
-    // =========================
     public get Id(): number | undefined {
         return this._id_transacao;
     }
@@ -89,9 +86,6 @@ export class Transacao {
         return this._status;
     }
 
-    // =========================
-    // SETTERS COM VALIDAÇÃO
-    // =========================
     public set IdConta(value: number) {
         if (!value || value <= 0) {
             throw new Error("Conta inválida");
@@ -148,9 +142,6 @@ export class Transacao {
         this._status = value;
     }
 
-    // =========================
-    // FACTORY METHODS
-    // =========================
     public static criar(
         id_conta: number,
         id_categoria: number,

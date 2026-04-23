@@ -29,7 +29,6 @@ export class Salario {
     this._id_salario = id;
   }
 
-  // Getters
   public get Id(): number | undefined {
     return this._id_salario;
   }
@@ -50,7 +49,6 @@ export class Salario {
     return this._status;
   }
 
-  // Setters
   public set IdFuncionario(value: number) {
     if (!value || value <= 0) {
       throw new Error("ID do funcionário inválido");
@@ -74,7 +72,6 @@ export class Salario {
     this._status = value;
   }
 
-  // Factory
   public static criar(
     id_funcionario: number,
     valor: number,

@@ -23,11 +23,8 @@ export class ContaRepository {
     }
 
     async insert(conta: iConta): Promise<number> {
-        const sql = `
-            INSERT INTO contasBank
-            (id_perfil, nome_banco, tipo_conta, saldo)
-            VALUES (?, ?, ?, ?)
-        `;
+        const sql = `INSERT INTO contasBank (id_perfil, nome_banco, tipo_conta, saldo)
+            VALUES (?, ?, ?, ?)`;
 
         const values = [
             conta.id_perfil,
@@ -41,14 +38,12 @@ export class ContaRepository {
     }
 
     async update(id: number, conta: iConta): Promise<ResultSetHeader> {
-        const sql = `
-            UPDATE contasBank SET
+        const sql = `UPDATE contasBank SET
                 id_perfil = ?,
                 nome_banco = ?,
                 tipo_conta = ?,
                 saldo = ?
-            WHERE id_conta = ?
-        `;
+            WHERE id_conta = ?`;
 
         const values = [
             conta.id_perfil,
@@ -69,11 +64,8 @@ export class ContaRepository {
     }
 
     async atualizarSaldo(id_conta: number, novoSaldo: number): Promise<ResultSetHeader> {
-        const sql = `
-            UPDATE contasBank
-            SET saldo = ?
-            WHERE id_conta = ?
-        `;
+        const sql = `UPDATE contasBank SET saldo = ?
+            WHERE id_conta = ?`;
 
         const [result] = await db.execute<ResultSetHeader>(sql, [novoSaldo, id_conta]);
         return result;

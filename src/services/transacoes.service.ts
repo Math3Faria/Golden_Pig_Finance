@@ -6,16 +6,10 @@ export class TransacaoService {
 
     constructor(private repository = new TransacaoRepository()) {}
 
-    // =========================
-    // SELECT ALL
-    // =========================
     async selecionarTodos() {
         return await this.repository.selectAll();
     }
 
-    // =========================
-    // SELECT BY ID
-    // =========================
     async selecionarPorId(id: number) {
         if (!id || id <= 0) {
             throw new Error("ID inválido");
@@ -24,9 +18,6 @@ export class TransacaoService {
         return await this.repository.selectById(id);
     }
 
-    // =========================
-    // INSERT
-    // =========================
     async inserir(transacao: iTransacao): Promise<number> {
         this._validar(transacao);
 
@@ -37,9 +28,6 @@ export class TransacaoService {
         return await this.repository.insert(transacao);
     }
 
-    // =========================
-    // UPDATE
-    // =========================
     async atualizar(id: number, transacao: iTransacao): Promise<ResultSetHeader> {
         if (!id || id <= 0) {
             throw new Error("ID inválido");
@@ -56,9 +44,6 @@ export class TransacaoService {
         return result;
     }
 
-    // =========================
-    // DELETE
-    // =========================
     async deletar(id: number): Promise<ResultSetHeader> {
         if (!id || id <= 0) {
             throw new Error("ID inválido");
@@ -73,9 +58,6 @@ export class TransacaoService {
         return result;
     }
 
-    // =========================
-    // 🔥 EXTRA: BUSCAR POR PERÍODO
-    // =========================
     async buscarPorPeriodo(inicio: Date, fim: Date) {
 
         if (!inicio || !fim) {
@@ -96,9 +78,6 @@ export class TransacaoService {
         return await this.repository.selectByPeriodo(dataInicio, dataFim);
     }
 
-    // =========================
-    // 🔒 VALIDAÇÕES
-    // =========================
     private _validar(t: iTransacao): void {
 
         if (!t.id_conta || t.id_conta <= 0) {

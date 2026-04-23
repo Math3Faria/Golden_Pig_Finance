@@ -6,16 +6,9 @@ export class ContaService {
 
     constructor(private repository = new ContaRepository()) {}
 
-    // =========================
-    // SELECT ALL
-    // =========================
     async selecionarTodos() {
         return await this.repository.selectAll();
     }
-
-    // =========================
-    // SELECT BY ID
-    // =========================
     async selecionarPorId(id: number) {
         if (!id || id <= 0) {
             throw new Error("ID inválido");
@@ -24,9 +17,7 @@ export class ContaService {
         return await this.repository.selectById(id);
     }
 
-    // =========================
-    // SELECT BY PERFIL
-    // =========================
+
     async selecionarPorPerfil(id_perfil: number) {
         if (!id_perfil || id_perfil <= 0) {
             throw new Error("Perfil inválido");
@@ -35,9 +26,6 @@ export class ContaService {
         return await this.repository.selectByPerfil(id_perfil);
     }
 
-    // =========================
-    // INSERT
-    // =========================
     async inserir(conta: iConta): Promise<number> {
         this._validar(conta);
 
@@ -46,9 +34,7 @@ export class ContaService {
         return await this.repository.insert(conta);
     }
 
-    // =========================
-    // UPDATE
-    // =========================
+
     async atualizar(id: number, conta: iConta): Promise<ResultSetHeader> {
         if (!id || id <= 0) {
             throw new Error("ID inválido");
@@ -65,9 +51,6 @@ export class ContaService {
         return result;
     }
 
-    // =========================
-    // DELETE
-    // =========================
     async deletar(id: number): Promise<ResultSetHeader> {
         if (!id || id <= 0) {
             throw new Error("ID inválido");
@@ -82,9 +65,7 @@ export class ContaService {
         return result;
     }
 
-    // =========================
-    // 💰 OBTER SALDO
-    // =========================
+
     async obterSaldo(id_conta: number): Promise<number> {
         if (!id_conta || id_conta <= 0) {
             throw new Error("Conta inválida");
@@ -93,9 +74,7 @@ export class ContaService {
         return await this.repository.obterSaldo(id_conta);
     }
 
-    // =========================
-    // 💰 ATUALIZAR SALDO
-    // =========================
+
     async atualizarSaldo(id_conta: number, valor: number, tipo: 'entrada' | 'saida') {
 
         if (!id_conta || id_conta <= 0) {
@@ -118,9 +97,6 @@ export class ContaService {
         return await this.repository.atualizarSaldo(id_conta, novoSaldo);
     }
 
-    // =========================
-    // 🔒 VALIDAÇÕES
-    // =========================
     private _validar(conta: iConta): void {
 
         if (!conta.id_perfil || conta.id_perfil <= 0) {
