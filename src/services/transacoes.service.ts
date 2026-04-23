@@ -21,7 +21,6 @@ export class TransacaoService {
     async inserir(transacao: iTransacao): Promise<number> {
         this._validar(transacao);
 
-        // valores padrão
         transacao.status = transacao.status ?? 'pago';
         transacao.id_faturamento = transacao.id_faturamento ?? null;
 
