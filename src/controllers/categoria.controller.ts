@@ -85,7 +85,9 @@ export class CategoriaController {
         return res.status(400).json({ message: "ID inválido" });
       }
 
-      await this.service.atualizar(id, nome, id_perfil ?? null);
+      const categoriaAtual = await this.service.selecionarPorId(id);
+
+      await this.service.atualizar(id, nome ?? categoriaAtual?.nome, id_perfil ?? categoriaAtual?.id_perfil);
 
       return res.status(200).json({ message: "Categoria atualizada com sucesso" });
 
