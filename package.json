@@ -1,0 +1,38 @@
+{
+  "name": "stock-plus",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000G\u0000o\u0000l\u0000d\u0000e\u0000n\u0000_\u0000P\u0000i\u0000g\u0000_\u0000F\u0000i\u0000n\u0000a\u0000n\u0000c\u0000e\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.4.0",
+    "nodemon": "^3.1.14",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@types/multer": "^2.1.0",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "multer": "^2.1.1",
+    "mysql2": "^3.19.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Math3Faria/Golden_Pig_Finance.git"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Math3Faria/Golden_Pig_Finance/issues"
+  },
+  "homepage": "https://github.com/Math3Faria/Golden_Pig_Finance#readme"
+}
